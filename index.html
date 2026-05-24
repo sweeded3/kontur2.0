@@ -1,0 +1,266 @@
+# Design System · Пушистый Контур
+
+Дизайн-токены и спецификации для воссоздания макета в Figma.
+
+---
+
+## 🎨 Цвета
+
+### Базовые
+
+| Токен | HEX | Использование |
+|---|---|---|
+| `--bg-cream` | `#FAF4EA` | Основной фон сайта |
+| `--bg-cream-soft` | `#FDFBF6` | Подложки карточек |
+| `--bg-warm` | `#E8D6BB` | Тёплая подложка для манифеста |
+| `--primary` | `#2C7A7A` | Бирюзовый — заголовки, кнопки, акценты |
+| `--primary-dark` | `#1F5959` | Hover, тени |
+| `--primary-soft` | `#9DC2C2` | Фоны бейджей |
+| `--accent` | `#D17A4A` | Терракот — акценты, иконки, выделения |
+| `--accent-soft` | `#E8B894` | Подложки акцентов |
+| `--text` | `#1E2A2A` | Основной текст |
+| `--text-soft` | `#4A5959` | Вторичный текст |
+| `--text-muted` | `#7A8585` | Подписи, метки |
+| `--border` | `#E2D5C0` | Тонкие рамки, разделители |
+| `--star` | `#E8B847` | Звёзды отзывов |
+
+### Семантические
+
+| Назначение | Цвет |
+|---|---|
+| Кнопка primary BG | `--primary` |
+| Кнопка primary text | `#FFFFFF` |
+| Кнопка primary hover | `--primary-dark` |
+| Кнопка secondary BG | `transparent` |
+| Кнопка secondary border | `--primary` |
+| Кнопка secondary text | `--primary` |
+| Ссылка | `--primary` |
+| Ссылка hover | `--accent` |
+
+---
+
+## ✍️ Типографика
+
+### Шрифты (Google Fonts)
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+```
+
+- **Fraunces** — display/заголовки (тёплый современный засечковый, с характером, имеет variable axis `soft`)
+- **Manrope** — body/UI (как в бренд-материалах)
+- **Caveat** — рукописные акценты (только для манифеста и эмоциональных вставок)
+
+### Иерархия
+
+| Стиль | Шрифт | Размер | Вес | Использование |
+|---|---|---|---|---|
+| Display XL | Fraunces | 80 / 56 / 44 | 600 | Hero H1 |
+| Display L | Fraunces | 56 / 44 / 36 | 600 | H2 секций |
+| Display M | Fraunces | 40 / 32 / 28 | 600 | H3 крупные |
+| Heading L | Manrope | 28 / 24 / 22 | 700 | H3 карточек |
+| Heading M | Manrope | 22 / 20 | 700 | H4 |
+| Body L | Manrope | 20 / 18 | 400 | Lead/intro |
+| Body M | Manrope | 16 | 400 | Основной |
+| Body S | Manrope | 14 | 400 | Подписи, метки |
+| Caption | Manrope | 12 | 500 | Метки, теги |
+| Quote | Caveat | 32-48 | 600 | Манифест, цитаты |
+
+*Размеры через слэш: desktop / tablet / mobile.*
+
+### Параметры
+
+- Line-height тела текста: **1.6**
+- Line-height заголовков: **1.1–1.2**
+- Letter-spacing заголовков: **-0.02em**
+- Letter-spacing тела: **0**
+
+---
+
+## 📐 Spacing
+
+8-точечная сетка:
+
+| Токен | px |
+|---|---|
+| `--space-1` | 4 |
+| `--space-2` | 8 |
+| `--space-3` | 12 |
+| `--space-4` | 16 |
+| `--space-5` | 24 |
+| `--space-6` | 32 |
+| `--space-7` | 48 |
+| `--space-8` | 64 |
+| `--space-9` | 96 |
+| `--space-10` | 128 |
+| `--space-11` | 160 |
+
+**Секционные отступы (между блоками):**
+- Desktop: **96–128px**
+- Tablet: **64–80px**
+- Mobile: **48–64px**
+
+---
+
+## 🧩 Компоненты
+
+### Кнопки
+
+**Primary** (главная):
+- BG: `--primary`
+- Text: white
+- Padding: `16px 32px`
+- Radius: `12px`
+- Font-weight: 700
+- Hover: BG → `--primary-dark`, transform: `translateY(-2px)`, shadow
+
+**Secondary** (вторичная):
+- BG: transparent
+- Border: 1px solid `--primary`
+- Text: `--primary`
+- Padding: `15px 31px` (учитывая бордер)
+- Radius: `12px`
+
+**Размер L** (для Hero и финального CTA):
+- Padding: `20px 40px`
+- Font-size: 18px
+
+### Карточки
+
+**Service card / Benefit card:**
+- BG: `--bg-cream-soft`
+- Border: 1px solid `--border`
+- Radius: `20px`
+- Padding: `32px`
+- Hover: transform `translateY(-4px)`, shadow `0 12px 32px rgba(28,42,42,0.08)`
+
+**Review card:**
+- BG: white
+- Radius: `20px`
+- Padding: `24px`
+- Shadow: `0 4px 16px rgba(28,42,42,0.04)`
+
+### Бейджи «Хорошее место»
+
+- Форма: pill-shape (radius 999px) ИЛИ круглая (44px)
+- BG: `--primary`
+- Text: white
+- Font-size: 12px
+- На hover: cursor pointer, лёгкое поднятие
+
+### Иконки
+
+- Стиль: **outline**, мягкие, скруглённые
+- Толщина: 1.5px
+- Размер в карточках: **48–56px**
+- Цвет: `--primary` или `--accent`
+- Источник: [Lucide Icons](https://lucide.dev) (free, open source) или эмоджи для прототипа
+
+---
+
+## 🖼 Изображения
+
+### Фото
+
+- **Реальные фото** — только из салона. Никаких стоков.
+- Радиус скругления: `16–20px`
+- Соотношения: **4:5** для портретов, **16:9** для горизонтальных, **1:1** для аватаров
+
+### Иллюстрации
+
+- Использовать **только в логотипе** и точечно (404, пустые состояния, рассылки).
+- В основном контенте — конкурируют с реальными фото.
+
+---
+
+## 🌟 Эффекты
+
+### Тени
+
+| Уровень | CSS |
+|---|---|
+| `--shadow-sm` | `0 2px 8px rgba(28,42,42,0.04)` |
+| `--shadow-md` | `0 8px 24px rgba(28,42,42,0.06)` |
+| `--shadow-lg` | `0 12px 32px rgba(28,42,42,0.08)` |
+| `--shadow-xl` | `0 24px 48px rgba(28,42,42,0.12)` |
+
+### Анимации
+
+- Длительность: **250ms** (микро), **400ms** (нормально), **600ms** (медленно)
+- Easing: `cubic-bezier(0.4, 0, 0.2, 1)` для всего
+
+### Скругления
+
+| Токен | Значение |
+|---|---|
+| `--radius-sm` | 8px |
+| `--radius-md` | 12px |
+| `--radius-lg` | 20px |
+| `--radius-xl` | 28px |
+| `--radius-pill` | 999px |
+
+---
+
+## 📱 Брейкпоинты
+
+```css
+--bp-mobile: 480px;
+--bp-tablet: 768px;
+--bp-desktop: 1024px;
+--bp-wide: 1280px;
+```
+
+Контейнер: **max-width: 1280px**, центрирован.
+
+---
+
+## 🎯 Готовые Figma-ресурсы
+
+Рекомендуемые бесплатные шаблоны для старта:
+
+1. **Figma Community → "Salon" / "Beauty"** — много готовых лендингов
+2. **"Pet Care Landing Page"** — есть несколько отличных бесплатных макетов
+3. **Lucide Icons Figma Plugin** — иконки бесплатно
+4. **Unsplash Plugin** — фото-замешалки (если нужно)
+
+### Что взять у нас как стартовый набор для Figma:
+
+1. **Открыть Figma → New Design File**
+2. **Создать стили** (Styles → +):
+   - Импортировать цвета из таблицы выше как Color Styles
+   - Импортировать типографику как Text Styles
+3. **Создать компоненты** (Components → +):
+   - Кнопки (Primary, Secondary, Ghost) — Variants
+   - Карточки услуг, преимуществ, отзывов
+   - Header, Footer
+4. **Создать страницу "Главная"**:
+   - Frame: Desktop 1440 × ~8000
+   - Frame: Mobile 375 × ~9000
+   - Собрать секции
+
+### Сетка в Figma
+
+- Columns: **12**
+- Gutter: **24**
+- Margin: **64**
+- Type: Stretch
+
+---
+
+## ✅ Что не делаем
+
+- Не используем **Inter, Roboto, Arial** или системные шрифты для заголовков — они «дешевят» бренд.
+- Не используем **фиолетовые градиенты на белом** — это эстетика «AI-mocap».
+- Не используем **эмодзи в дизайн-макете финального сайта** (на прототипе можно для скорости).
+- Не делаем **тёмный режим** — у нас тёплый дневной бренд.
+- Не используем **3D-illustrations** — конфликтуют с реальными фото.
+
+---
+
+## 📦 Следующие шаги для Figma
+
+1. ✅ Открыть `index.html` в браузере, посмотреть, как это выглядит «вживую».
+2. ✅ Открыть `wireframe.html` — структурный каркас.
+3. ⏭ В Figma воссоздать дизайн, используя токены выше.
+4. ⏭ Если нужны иконки — Lucide Icons plugin.
+5. ⏭ Финальный макет → передача разработке.
